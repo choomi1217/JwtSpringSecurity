@@ -20,6 +20,9 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
+/**
+ * 권한을 받아 토큰을 만들어 주거나 토큰을 받아 어떤 권한이 있는지 돌려주는 클래스
+ * */
 @Component
 public class TokenProvider implements InitializingBean {
 
