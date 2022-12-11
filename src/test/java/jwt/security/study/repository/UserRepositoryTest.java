@@ -33,10 +33,22 @@ class UserRepositoryTest {
     }
     @Test
     void signUp() {
+        Assertions.assertThatCode(()->{
+            User user = userRepository.signUp(UserRepository.format("test", "test", "test"));
 
+            Assertions.assertThat(user).isNotNull();
+        }).doesNotThrowAnyException();
     }
 
-    @Test
-    void format() {
+    @ParameterizedTest
+    @CsvSource(value = {
+            "test,test,test",
+            "test2,test2,test2"
+    }
+            ,delimiter = ',')
+    void format(String username,
+                String nickname,
+                String password) {
+        UserRepository.format(username,nickname,password);
     }
 }

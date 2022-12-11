@@ -15,5 +15,15 @@ import static org.springframework.http.HttpStatus.CREATED;
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserController {
+    private final SignUp signUp;
+
+    @PostMapping
+    @ResponseStatus(CREATED)
+    public ResponseEntity signup(
+            @RequestBody SignupRequest request
+    ){
+        signUp.signUp(request);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
 
 }

@@ -13,8 +13,8 @@ public interface SignUp{
         private final UserRepository repository;
 
         @Override
-        public User signUp(UserDto userDto){
-            return  repository.signUp(UserRepository.format(userDto.getUsername(), userDto.getNickname(), userDto.getPassword()));
+        public User signUp(SignupRequest request){
+            return  repository.signUp(UserRepository.format(request.username, request.nickname, request.password));
         }
 
         public record SignupRequest(String username, String nickname, String password){
@@ -25,5 +25,7 @@ public interface SignUp{
             }
         }
     }
+
+
 }
 
