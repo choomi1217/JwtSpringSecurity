@@ -7,6 +7,7 @@ import lombok.*;
 import java.util.*;
 
 import static java.util.Collections.singletonList;
+import static jwt.security.study.entity.Authorities.defaultAuthority;
 
 @Entity
 @Getter
@@ -31,14 +32,14 @@ public class User {
     private Boolean activated;
 
     @ElementCollection
-    private List<Authority> authority;
+    private List<Authorities> authority;
 
 
     private User(String username,
                  String password,
                  String nickname,
                  Boolean activated,
-                 List<Authority> authority) {
+                 List<Authorities> authority) {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
@@ -59,9 +60,7 @@ public class User {
                 defautAuthority()
         );
     }
-    private static List<Authority> defautAuthority(){
-        return singletonList(Authority.builder()
-                .authorityName("ROLE_USER")
-                .build());
+    private static List<Authorities> defautAuthority(){
+        return singletonList(defaultAuthority());
     }
 }

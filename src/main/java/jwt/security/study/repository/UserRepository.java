@@ -8,19 +8,18 @@ import org.springframework.stereotype.Service;
 
 import static jwt.security.study.entity.User.init;
 
+@FunctionalInterface
 public interface UserRepository {
-
-
     User signUp(UserRdbmsRepository.SignupRequest request);
 
 
     static UserRdbmsRepository.SignupRequest format(String username, String nickname, String password){
         return new UserRdbmsRepository.SignupRequest(username,nickname,password);
     }
+
     @Service
     @RequiredArgsConstructor
     class UserRdbmsRepository implements UserRepository{
-
         private final UserJpaRepository userRepository;
         private final PasswordEncoder passwordEncoder;
 
@@ -31,16 +30,21 @@ public interface UserRepository {
             }
             return userRepository.save(init(request.username,request.nickname,request.encrypt(passwordEncoder)));
         }
+        public record SignupRequest(String username, String nickname, String password){
+            public SignupRequest {
+                if (username == null || username.isBlank()) {
+                    throw new IllegalArgumentException("username은 필수값입니다.");
+                }
+                if (nickname == null || nickname.isBlank()) {
+                    throw new IllegalArgumentException("nickname은 필수값입니다.");
+                }
+                if (password == null || password.isBlank()) {
+                    throw new IllegalArgumentException("password는 필수값입니다.");
+                }
+            }
 
-
-        @AllArgsConstructor
-        private static class SignupRequest{
-            private String username;
-            private String nickname;
-            private String password;
-
-            private String encrypt(PasswordEncoder encoder){
-                return encoder.encode(password);
+            private String encrypt(PasswordEncoder passwordEncoder){
+                return passwordEncoder.encode(password);
             }
         }
     }

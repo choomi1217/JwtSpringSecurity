@@ -1,6 +1,5 @@
 package jwt.security.study.util;
 
-import jwt.security.study.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -26,13 +25,12 @@ public class SecurityUtil {
             return Optional.empty();
         }
         String username = null;
-        if(authentication.getPrincipal() instanceof UserDto){
-            UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
-            username = springSecurityUser.getUsername();
-        }else if(authentication.getPrincipal() instanceof String){
-            username = (String) authentication.getPrincipal();
-        }
-
+//        if(authentication.getPrincipal() instanceof UserDto){
+//            UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
+//            username = springSecurityUser.getUsername();
+//        }else if(authentication.getPrincipal() instanceof String){
+//            username = (String) authentication.getPrincipal();
+//        }
         return Optional.ofNullable(username);
 
     }
