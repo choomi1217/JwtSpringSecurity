@@ -4,18 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.*;
+
+import static java.util.Collections.singletonList;
 
 @Entity
 @Getter
-@Setter
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 
     @Id
-    @JsonIgnore
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -30,14 +28,40 @@ public class User {
     private String nickname;
 
     @Column(name = "activated")
-    private boolean activated;
+    private Boolean activated;
 
-    @ManyToMany
-    @JoinTable(
-              name = "user_authority"
-            , joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")}
-            , inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")}
-    )
-    private Set<Authority> authority;
+    @ElementCollection
+    private List<Authority> authority;
 
+
+    private User(String username,
+                 String password,
+                 String nickname,
+                 Boolean activated,
+                 List<Authority> authority) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.activated = activated;
+        this.authority = authority;
+    }
+
+    public static User init(
+            String username,
+            String nickname,
+            String password
+    ){
+        return new User(
+                username,
+                nickname,
+                password,
+                Boolean.TRUE,
+                defautAuthority()
+        );
+    }
+    private static List<Authority> defautAuthority(){
+        return singletonList(Authority.builder()
+                .authorityName("ROLE_USER")
+                .build());
+    }
 }

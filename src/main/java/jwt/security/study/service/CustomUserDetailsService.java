@@ -1,7 +1,7 @@
 package jwt.security.study.service;
 
 import jwt.security.study.entity.User;
-import jwt.security.study.repository.UserRepository;
+import jwt.security.study.repository.UserJpaRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 @Component("userDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserJpaRepository userRepository;
 
-    public CustomUserDetailsService(UserRepository userRepository) {
+    public CustomUserDetailsService(UserJpaRepository userRepository) {
         this.userRepository = userRepository;
     }
 
