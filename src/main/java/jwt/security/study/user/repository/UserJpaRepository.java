@@ -1,6 +1,5 @@
-package jwt.security.study.repository;
+package jwt.security.study.user.repository;
 
-import jwt.security.study.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

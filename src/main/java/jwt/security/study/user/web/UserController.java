@@ -1,10 +1,8 @@
-package jwt.security.study.controller;
+package jwt.security.study.user.web;
 
-import jakarta.validation.Valid;
-import jwt.security.study.service.SignUp;
-import jwt.security.study.service.SignUp.SignUpUsecase.SignupRequest;
+import jwt.security.study.user.SignUp;
+import jwt.security.study.user.SignUp.SignUpUsecase.SignupRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

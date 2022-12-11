@@ -1,9 +1,9 @@
-package jwt.security.study.entity;
+package jwt.security.study.user.repository;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import static jwt.security.study.entity.Authorities.Authority.ROLE_USER;
+import static jwt.security.study.user.repository.Authorities.Authority.ROLE_USER;
 import static lombok.AccessLevel.PROTECTED;
 
 @Embeddable

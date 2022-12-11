@@ -1,13 +1,12 @@
-package jwt.security.study.entity;
+package jwt.security.study.user.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.*;
 
 import static java.util.Collections.singletonList;
-import static jwt.security.study.entity.Authorities.defaultAuthority;
+import static jwt.security.study.user.repository.Authorities.defaultAuthority;
 
 @Entity
 @Getter

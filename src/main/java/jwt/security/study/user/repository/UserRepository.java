@@ -1,12 +1,10 @@
-package jwt.security.study.repository;
+package jwt.security.study.user.repository;
 
-import jwt.security.study.entity.User;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import static jwt.security.study.entity.User.init;
+import static jwt.security.study.user.repository.User.init;
 
 @FunctionalInterface
 public interface UserRepository {

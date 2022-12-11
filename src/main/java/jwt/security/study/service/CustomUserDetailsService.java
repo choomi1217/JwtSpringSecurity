@@ -1,6 +1,6 @@
 package jwt.security.study.service;
 
-import jwt.security.study.entity.User;
+import jwt.security.study.user.repository.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,5 @@
 package jwt.security.study.jwt;
 
-import jwt.security.study.entity.User;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;

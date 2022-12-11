@@ -1,7 +1,7 @@
-package jwt.security.study.service;
+package jwt.security.study.user;
 
-import jwt.security.study.entity.User;
-import jwt.security.study.repository.UserRepository;
+import jwt.security.study.user.repository.User;
+import jwt.security.study.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 public interface SignUp{
