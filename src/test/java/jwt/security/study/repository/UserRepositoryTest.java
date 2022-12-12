@@ -1,7 +1,7 @@
 package jwt.security.study.repository;
 
 import jakarta.transaction.Transactional;
-import jwt.security.study.user.repository.User;
+import jwt.security.study.user.entity.User;
 import jwt.security.study.user.repository.UserJpaRepository;
 import jwt.security.study.user.repository.UserRepository;
 import org.assertj.core.api.Assertions;

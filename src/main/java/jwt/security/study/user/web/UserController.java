@@ -1,7 +1,7 @@
 package jwt.security.study.user.web;
 
 import jwt.security.study.user.SignUp;
-import jwt.security.study.user.SignUp.SignUpUsecase.SignupRequest;
+import jwt.security.study.user.SignupRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
